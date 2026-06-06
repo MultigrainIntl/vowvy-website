@@ -568,7 +568,7 @@ footer {
 }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .footer-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 4px; }
-.footer-mark { height: 56px; width: auto; mix-blend-mode: screen; }
+.footer-mark { height: 56px; width: auto; }
 .footer-wordmark {
   font-family: var(--font-serif);
   font-size: 18px;
