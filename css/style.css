@@ -193,7 +193,7 @@ p.light-muted { color: var(--sand); }
   gap: 14px;
   text-decoration: none;
 }
-.logo-mark { height: 110px; width: auto; display: block; }
+.logo-mark { height: 64px; width: auto; display: block; }
 .logo-text { display: flex; flex-direction: column; gap: 4px; }
 .logo-wordmark {
   font-family: var(--font-serif);
