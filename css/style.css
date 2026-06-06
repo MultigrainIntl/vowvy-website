@@ -165,7 +165,7 @@ p.light-muted { color: var(--sand); }
   gap: 3px;
   text-decoration: none;
 }
-.logo-img { height: 36px; width: auto; }
+.logo-img { height: 52px; width: auto; }
 .logo-wordmark {
   font-family: var(--font-serif);
   font-size: 22px;
@@ -488,7 +488,7 @@ blockquote::before, blockquote::after { content: ''; }
 
 /* ---- WAITLIST ---- */
 .waitlist-inner { max-width: 540px; margin: 0 auto; text-align: center; }
-.waitlist-logo { height: 36px; width: auto; margin: 0 auto 28px; }
+.waitlist-logo { height: 80px; width: auto; margin: 0 auto 28px; }
 .waitlist-logo-placeholder {
   width: 48px; height: 48px;
   border-radius: 50%;
@@ -538,7 +538,7 @@ footer {
   text-align: center;
 }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.footer-logo  { height: 26px; width: auto; }
+.footer-logo { height: 52px; width: auto; opacity: 0.75; }
 .footer-wordmark {
   font-family: var(--font-serif);
   font-size: 18px;
