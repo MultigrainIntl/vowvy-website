@@ -189,11 +189,13 @@ p.light-muted { color: var(--sand); }
 }
 .nav-logo {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
   text-decoration: none;
 }
-.logo-img { height: 90px; width: auto; mix-blend-mode: multiply; }
+.logo-mark { height: 56px; width: auto; display: block; mix-blend-mode: multiply; }
+.logo-text { display: flex; flex-direction: column; gap: 4px; }
 .logo-wordmark {
   font-family: var(--font-serif);
   font-size: 22px;
@@ -566,14 +568,22 @@ footer {
   text-align: center;
 }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.footer-logo { height: 56px; width: auto; mix-blend-mode: screen; opacity: 1; }
+.footer-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 4px; }
+.footer-mark { height: 48px; width: auto; mix-blend-mode: screen; }
 .footer-wordmark {
   font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.22em;
   color: var(--ivory);
-  opacity: 0.6;
+  line-height: 1;
+}
+.footer-tagline {
+  font-family: var(--font-serif);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: var(--terra);
+  line-height: 1;
 }
 footer p { font-size: 13px; color: var(--muted); }
 
