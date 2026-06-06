@@ -186,7 +186,6 @@ p.light-muted { color: var(--sand); }
   align-items: center;
   justify-content: space-between;
 }
-  gap: 13px;
 .nav-logo {
   display: flex;
   flex-direction: row;
