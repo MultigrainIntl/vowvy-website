@@ -135,9 +135,9 @@ p.light-muted { color: var(--sand); }
 .logo-morph-wrap {
   position: relative;
   display: inline-block;
-  width: 110px;
-  height: 110px;
-  margin: 0 auto 36px;
+  width: 146px;
+  height: 146px;
+  margin: 0 auto 34px; /* 56 / φ ≈ 34px */
 }
 .logo-morph-wrap img {
   position: absolute;
@@ -192,7 +192,7 @@ p.light-muted { color: var(--sand); }
   gap: 3px;
   text-decoration: none;
 }
-.logo-img { height: 52px; width: auto; }
+.logo-img { height: 56px; width: auto; }
 .logo-wordmark {
   font-family: var(--font-serif);
   font-size: 22px;
@@ -515,7 +515,7 @@ blockquote::before, blockquote::after { content: ''; }
 
 /* ---- WAITLIST ---- */
 .waitlist-inner { max-width: 540px; margin: 0 auto; text-align: center; }
-.waitlist-logo { height: 80px; width: auto; margin: 0 auto 28px; }
+.waitlist-logo { height: 90px; width: auto; margin: 0 auto 28px; }
 .waitlist-logo-placeholder {
   width: 48px; height: 48px;
   border-radius: 50%;
@@ -565,7 +565,7 @@ footer {
   text-align: center;
 }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.footer-logo { height: 52px; width: auto; opacity: 0.75; }
+.footer-logo { height: 34px; width: auto; opacity: 0.85; }
 .footer-wordmark {
   font-family: var(--font-serif);
   font-size: 18px;
