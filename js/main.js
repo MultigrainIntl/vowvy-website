@@ -62,21 +62,25 @@
       return;
     }
 
-    // ------------------------------------------------
-    // TODO: replace with your real form endpoint
-    // Options: Mailchimp, ConvertKit, Formspree, etc.
-    // Example with Formspree:
-    //   fetch('https://formspree.io/f/YOUR_ID', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ email })
-    //   });
-    // ------------------------------------------------
-
-    console.log('Waitlist signup:', email);
-
-    form.hidden = true;
-    success.hidden = false;
+    fetch('https://formspree.io/f/xpqeadrq', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({ email, site: 'vowvy' })
+    })
+    .then(response => {
+      if (response.ok) {
+        form.hidden = true;
+        success.hidden = false;
+      } else {
+        input.style.borderColor = 'rgba(201,106,61,0.6)';
+      }
+    })
+    .catch(() => {
+      input.style.borderColor = 'rgba(201,106,61,0.6)';
+    });
   });
 
   input.addEventListener('input', function () {

@@ -145,7 +145,7 @@ WHAT IS BROKEN / TODO ❌
 ═══════════════════════════════════════════════════════════
 
 PRIORITY 1 — Urgent
-- [ ] Formspree: waitlist form not capturing emails (signups are LOST)
+- [x] Formspree: connected — signups captured via shared Multigrain form (site=vowvy tag)
 - [ ] Footer logo: dark halo on dark background
 - [ ] DNS: www.vowvy.com not pointing to GitHub Pages
       (GoDaddy forwarding active — must remove first)
@@ -168,19 +168,9 @@ FORMSPREE SETUP INSTRUCTIONS
 
 ═══════════════════════════════════════════════════════════
 
-Vowvy gets its OWN form — not the shared Multigrain one.
-Do this in Claude chat first, then implement in Claude Code.
-
-1. Go to https://formspree.io — log in or create account
-2. Click "New Form" → name it "Vowvy Waitlist"
-3. Set recipient email
-4. Copy the endpoint: https://formspree.io/f/XXXXXXXX
-5. In index.html, find the waitlist <form> tag
-6. Add: action="https://formspree.io/f/XXXXXXXX" method="POST"
-7. Confirm email input has: name="email"
-8. Optional spam guard: <input type="text" name="_gotcha" style="display:none">
-9. Show George the change → wait for approval → push
-10. Test with a real email to confirm delivery
+Using the shared Multigrain Formspree form (https://formspree.io/f/xpqeadrq),
+tagged with hidden field site=vowvy. Signups arrive at george@multigrain.com
+filtered by tag.
 
 ═══════════════════════════════════════════════════════════
 
