@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ================================================
+       SITE IDENTITY — update these when domain is set
+       ================================================ -->
+  <title>Vowvy — Spaces for Everything That Matters</title>
+  <meta name="description" content="Photograph a box. AI catalogs everything inside. Find anything, anywhere — even years later." />
+  <link rel="canonical" href="https://www.vowvy.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vowvy — Spaces for Everything That Matters" />
+  <meta property="og:description" content="Organize life without overwhelm. Vowvy uses AI to catalog your spaces so you can find anything, anytime." />
+  <meta property="og:image" content="https://www.vowvy.com/assets/images/og-image.png" />
+  <meta property="og:url" content="https://www.vowvy.com/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vowvy — Spaces for Everything That Matters" />
+  <meta name="twitter:description" content="Photograph a box. AI catalogs everything inside." />
+  <meta name="twitter:image" content="https://www.vowvy.com/assets/images/og-image.png" />
+
+  <!-- Favicon — replace files in assets/images/ when ready -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <!-- LOGO: Replace with <img> tag once artwork is ready -->
+        <!-- Example: <img src="assets/images/logo-main.png" alt="Vowvy" class="logo-img" /> -->
+        <span class="logo-wordmark">VOWVY</span>
+        <span class="logo-tagline">SPACES FOR EVERYTHING THAT MATTERS</span>
+      </a>
+      <a href="#waitlist" class="btn btn-primary nav-cta">Join Waitlist</a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
+        <h1 class="hero-headline fade-up delay-1">
+          Spaces for<br />
+          <em>everything</em><br />
+          that matters.
+        </h1>
+        <p class="hero-sub fade-up delay-2">
+          Photograph a box. AI catalogs everything inside.
+          Find anything, anywhere — even years later.
+          Organization that works the way life actually happens.
+        </p>
+        <div class="hero-actions fade-up delay-3">
+          <a href="#waitlist" class="btn btn-primary btn-lg">Join the waitlist →</a>
+          <a href="#how" class="btn btn-ghost">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-visual fade-up delay-4" aria-hidden="true">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-bar">
+              <span class="phone-brand">VOWVY</span>
+              <div class="phone-avatar"></div>
+            </div>
+            <div class="phone-photo">
+              <div class="phone-scanning">AI scanning…</div>
+            </div>
+            <div class="phone-tags-section">
+              <div class="phone-label">DETECTED ITEMS</div>
+              <div class="phone-tags" id="phoneTags">
+                <span class="tag active">vintage lamp</span>
+                <span class="tag">photo albums</span>
+                <span class="tag">cable box</span>
+                <span class="tag">art books</span>
+                <span class="tag">blanket</span>
+                <span class="tag">camera bag</span>
+              </div>
+            </div>
+            <div class="phone-location">
+              <span class="dot"></span>
+              Storage Unit B · Box 14
+            </div>
+            <div class="phone-search">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Search your spaces…
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE PROBLEM ================ -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section-intro reveal">
+        <div class="eyebrow">THE REALITY</div>
+        <h2>Life doesn't organize itself<br /><em>before you need to find something.</em></h2>
+        <p class="section-sub">
+          The junk drawer. The storage unit from three moves ago. Your parents' garage.
+          The boxes labeled "misc." We've all been there — and the chaos is exhausting.
+        </p>
+      </div>
+      <div class="grid-3 problem-cards">
+        <div class="dark-card reveal delay-1">
+          <div class="card-glow"></div>
+          <h3>"Where did I put that?"</h3>
+          <p>The question that costs hours.</p>
+        </div>
+        <div class="dark-card reveal delay-2">
+          <div class="card-glow"></div>
+          <h3>Boxes labeled "misc."</h3>
+          <p>Thousands of forgotten decisions.</p>
+        </div>
+        <div class="dark-card reveal delay-3">
+          <div class="card-glow"></div>
+          <h3>Moving again.</h3>
+          <p>Starting from zero, again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ HOW IT WORKS ================ -->
+  <section class="section section-beige" id="how">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow">HOW IT WORKS</div>
+        <h2>Three steps.<br /><em>Endless clarity.</em></h2>
+      </div>
+      <div class="how-layout">
+        <div class="steps">
+          <div class="step reveal delay-1">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h3>Snap a photo</h3>
+              <p>Point your phone at any box, drawer, shelf, or room. Don't organize first — just capture.</p>
+            </div>
+          </div>
+          <div class="step reveal delay-2">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h3>AI catalogs everything</h3>
+              <p>Vowvy reads the photo and generates descriptive tags for every visible item — instantly.</p>
+            </div>
+          </div>
+          <div class="step reveal delay-3">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h3>Find anything, forever</h3>
+              <p>Search by item, category, or keyword. Vowvy tells you exactly which box and where that box lives.</p>
+            </div>
+          </div>
+        </div>
+        <div class="search-preview reveal delay-2">
+          <div class="eyebrow">SEARCH RESULT</div>
+          <div class="search-result">
+            <div class="result-query">"vintage lamp"</div>
+            <div class="result-loc"><span class="dot"></span> Garage · Box 3</div>
+          </div>
+          <div class="search-result">
+            <div class="result-query">"tax documents"</div>
+            <div class="result-loc"><span class="dot"></span> Office · Filing Box A</div>
+          </div>
+          <div class="search-result last">
+            <div class="result-query">"baby photos"</div>
+            <div class="result-loc"><span class="dot"></span> Attic · Memory Box 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= USE CASES ================= -->
+  <section class="section" id="uses">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow">MADE FOR REAL LIFE</div>
+        <h2>Every space. Every season.</h2>
+      </div>
+      <div class="grid-3 use-cards">
+        <div class="use-card reveal delay-1">
+          <div class="use-icon">🏠</div>
+          <h3>Home Organization</h3>
+          <p>Finally know what's in every closet, drawer, and cabinet — without spending a weekend on it.</p>
+        </div>
+        <div class="use-card reveal delay-2">
+          <div class="use-icon">📦</div>
+          <h3>Moving</h3>
+          <p>Box by box, room by room. Know exactly where everything is before you open a single box.</p>
+        </div>
+        <div class="use-card reveal delay-3">
+          <div class="use-icon">🌿</div>
+          <h3>Family Estates</h3>
+          <p>Navigate a loved one's belongings with care and clarity, together as a family.</p>
+        </div>
+        <div class="use-card reveal delay-1">
+          <div class="use-icon">🎸</div>
+          <h3>Collections</h3>
+          <p>Records, books, tools, vintage finds. Catalog what you love and never lose track of it.</p>
+        </div>
+        <div class="use-card reveal delay-2">
+          <div class="use-icon">🏷️</div>
+          <h3>Selling Online</h3>
+          <p>Photograph items for resale and build your listings in the same breath.</p>
+        </div>
+        <div class="use-card reveal delay-3">
+          <div class="use-icon">🤝</div>
+          <h3>Shared Households</h3>
+          <p>Roommates, partners, family — everyone can contribute and stay in the loop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ COLLABORATION ============== -->
+  <section class="section section-dark" id="together">
+    <div class="container">
+      <div class="collab-layout grid-2">
+        <div class="collab-text reveal">
+          <div class="eyebrow eyebrow-light">TOGETHER</div>
+          <h2 class="light">Large tasks become<br /><em class="terra">lighter, together.</em></h2>
+          <p class="light-muted">
+            Invite family or friends to contribute photos from their own phones.
+            A garage that takes one person a weekend takes a family an afternoon.
+          </p>
+          <div class="avatars">
+            <div class="avatar active">Y</div>
+            <div class="avatar">M</div>
+            <div class="avatar">J</div>
+            <div class="avatar">S</div>
+            <div class="avatar">+3</div>
+            <span class="avatar-label">organizing together</span>
+          </div>
+        </div>
+        <div class="activity-feed reveal delay-2">
+          <div class="eyebrow">ACTIVITY</div>
+          <div class="activity-item">
+            <div class="activity-avatar">M</div>
+            <div class="activity-body">
+              <span class="activity-name">Mom</span>
+              <span class="activity-action"> added 12 items to Attic Box 2</span>
+              <div class="activity-time">2m ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-avatar">J</div>
+            <div class="activity-body">
+              <span class="activity-name">Jake</span>
+              <span class="activity-action"> photographed the garage shelves</span>
+              <div class="activity-time">8m ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-avatar">Y</div>
+            <div class="activity-body">
+              <span class="activity-name">You</span>
+              <span class="activity-action"> found grandma's china set</span>
+              <div class="activity-time">15m ago</div>
+            </div>
+          </div>
+          <div class="activity-item last">
+            <div class="activity-avatar">S</div>
+            <div class="activity-body">
+              <span class="activity-name">Sarah</span>
+              <span class="activity-action"> labeled the holiday boxes</span>
+              <div class="activity-time">1h ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ PHILOSOPHY ================ -->
+  <section class="section philosophy">
+    <div class="container">
+      <div class="philosophy-inner reveal">
+        <div class="philosophy-mark" aria-hidden="true"></div>
+        <blockquote>"Capture first.<br />Organize later."</blockquote>
+        <p>
+          Vowvy is built around a simple truth: life doesn't pause while you get organized.
+          The app works the way you do — messy, moving, imperfect.
+          You capture. Vowvy brings clarity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WAITLIST ================= -->
+  <section class="section section-dark" id="waitlist">
+    <div class="container">
+      <div class="waitlist-inner reveal">
+        <!-- LOGO: Replace with checkmark logo once artwork is ready -->
+        <!-- <img src="assets/images/logo-check.png" alt="Vowvy" class="waitlist-logo" /> -->
+        <div class="waitlist-logo-placeholder" aria-hidden="true"></div>
+        <h2 class="light">Feel capable again.</h2>
+        <p class="waitlist-sub">
+          Vowvy is coming soon. Join the waitlist and be first to
+          experience a calmer, more organized life.
+        </p>
+        <form class="waitlist-form" id="waitlistForm" novalidate>
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="your@email.com"
+            autocomplete="email"
+            required
+          />
+          <button type="submit" class="btn btn-primary">Join →</button>
+        </form>
+        <div class="waitlist-success" id="waitlistSuccess" hidden>
+          ✓ You're on the list. We'll be in touch.
+        </div>
+        <p class="waitlist-note">No spam. No noise. Just Vowvy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER ================= -->
+  <footer>
+    <div class="footer-inner container">
+      <!-- LOGO: Replace with <img> once artwork is ready -->
+      <span class="footer-wordmark">VOWVY</span>
+      <p>© 2026 Vowvy · Spaces for everything that matters.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
