@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 582 370" fill="none">
-  <!-- Terracotta left wing — traced from pixel data -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 582 380" fill="none">
+  <!-- Terracotta left wing: tall sweeping shape, widens toward middle, tapers at bottom right -->
   <path d="
-    M 140 26
-    C 120 26 98 34 90 52
-    C 82 70 84 96 88 122
-    C 92 152 100 182 108 208
-    C 116 234 126 258 140 276
-    C 152 292 168 302 182 298
-    C 196 294 204 280 204 262
-    C 204 242 194 220 182 196
-    C 168 168 154 136 148 104
-    C 142 74 142 48 148 32
-    C 146 28 144 26 140 26 Z
+    M 117 26
+    C 100 26 88 34 88 50
+    C 88 72 92 100 100 130
+    C 108 162 118 194 130 222
+    C 142 250 156 272 170 284
+    C 184 296 200 298 210 288
+    C 220 278 222 260 218 238
+    C 214 216 204 192 192 166
+    C 178 136 166 104 158 72
+    C 152 48 148 30 140 24
+    C 134 20 126 20 117 26 Z
   " fill="#B55C32"/>
-  <!-- Sand right wing — traced from pixel data -->
+  <!-- Sand right wing: smaller rounded teardrop shape, sits upper right -->
   <path d="
-    M 390 108
-    C 374 96 354 94 340 104
-    C 324 116 316 136 318 158
-    C 320 180 332 200 348 214
-    C 362 228 380 234 396 228
-    C 412 222 422 206 422 188
-    C 422 168 412 148 400 132
-    C 396 122 392 114 390 108 Z
+    M 430 118
+    C 418 108 402 106 390 114
+    C 376 124 368 144 370 166
+    C 372 190 386 212 402 226
+    C 416 238 434 242 448 234
+    C 462 226 468 210 466 192
+    C 464 172 454 152 442 136
+    C 436 126 432 120 430 118 Z
   " fill="#C7B3A0"/>
 </svg>
