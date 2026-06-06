@@ -186,14 +186,15 @@ p.light-muted { color: var(--sand); }
   align-items: center;
   justify-content: space-between;
 }
+  gap: 13px;
 .nav-logo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 14px;
+  gap: 13px;
   text-decoration: none;
 }
-.logo-mark { height: 64px; width: auto; display: block; }
+.logo-mark { height: 36px; width: auto; display: block; }
 .logo-text { display: flex; flex-direction: column; gap: 4px; }
 .logo-wordmark {
   font-family: var(--font-serif);
