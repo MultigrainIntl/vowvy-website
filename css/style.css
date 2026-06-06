@@ -121,6 +121,33 @@ p.light-muted { color: var(--sand); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Logo morph: V → checkmark */
+@keyframes logoV {
+  0%, 40%   { opacity: 1; transform: scale(1); }
+  50%, 90%  { opacity: 0; transform: scale(0.88) rotate(-6deg); }
+  100%      { opacity: 1; transform: scale(1); }
+}
+@keyframes logoCheck {
+  0%, 40%   { opacity: 0; transform: scale(0.88) rotate(6deg); }
+  50%, 90%  { opacity: 1; transform: scale(1); }
+  100%      { opacity: 0; transform: scale(0.88) rotate(6deg); }
+}
+.logo-morph-wrap {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 36px;
+}
+.logo-morph-wrap img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+.logo-morph-v     { animation: logoV     5s ease-in-out infinite; }
+.logo-morph-check { animation: logoCheck 5s ease-in-out infinite; }
+
 .fade-up { opacity: 0; }
 .fade-up.delay-1 { animation: fadeUp 0.9s ease 0.2s forwards; }
 .fade-up.delay-2 { animation: fadeUp 0.9s ease 0.42s forwards; }
