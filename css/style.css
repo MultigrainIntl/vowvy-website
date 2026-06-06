@@ -189,7 +189,7 @@ p.light-muted { color: var(--sand); }
 .nav-logo {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   gap: 13px;
   text-decoration: none;
 }
