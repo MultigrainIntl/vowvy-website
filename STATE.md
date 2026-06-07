@@ -366,6 +366,23 @@ TO RE-ENABLE — do these steps in order:
 Site key (public):  6LdbjREtAAAAAGxozqM7Nnbi7DmKUTzE6sDSH6vI
 Secret key:         6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
 
+AUTH DOMAIN — action needed once app.vowvy.com is verified
+
+  app.vowvy.com CNAME is set in GoDaddy (→ vowvy-1ba5f.web.app) but
+  Firebase Hosting hasn't verified it yet (shows "Needs setup").
+
+  Safari ITP blocks cross-origin IndexedDB auth persistence when
+  authDomain is firebaseapp.com — causes sign-in failures on iPad Safari.
+  Workaround: browserSessionPersistence (sessionStorage) is live now.
+  Downside: users must re-login when they close the tab.
+
+  Permanent fix — once Firebase verifies app.vowvy.com:
+    1. src/firebase.ts → change authDomain to "app.vowvy.com"
+    2. Remove the setPersistence(auth, browserSessionPersistence) call
+    3. Rebuild and deploy: npm run build &&
+       firebase deploy --only hosting:vowvy-1ba5f --project vowvy-1ba5f
+    4. Test sign-in on iPad Safari — session should persist across tab closes
+
 App: https://vowvy-1ba5f.web.app
 Repo: https://github.com/MultigrainIntl/vowvy-app
 
