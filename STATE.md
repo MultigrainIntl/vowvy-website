@@ -282,6 +282,36 @@ DATA MODEL
 
 ═══════════════════════════════════════════════════════════
 
+MONETIZATION STRATEGY
+
+═══════════════════════════════════════════════════════════
+
+Revenue model (to be implemented after user validation)
+
+FREEMIUM
+  Free tier limited to 10 containers. Paid plan $5–8/month for unlimited
+  containers, QR codes, sharing, and export.
+
+BUSINESS PLANS
+  $50–200/month for moving companies, storage facilities, estate sale
+  organizers, and box rental companies. Includes branded experience and
+  multi-user access.
+
+WHITE LABEL
+  License Vowvy to businesses (e.g. Rocky Mountain Box Co.) under their
+  own brand. Setup fee plus monthly licensing.
+
+INSURANCE PARTNERSHIPS
+  Home inventory has direct insurance value. Partner with insurers to
+  offer Vowvy as a free benefit to policyholders.
+
+PRIORITY
+  Keep free for now. Validate with real users. Build paywall around
+  features users actually ask to pay for. B2B partnerships are fastest
+  path to revenue.
+
+═══════════════════════════════════════════════════════════
+
 FUTURE OPPORTUNITIES
 
 ═══════════════════════════════════════════════════════════
