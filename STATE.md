@@ -1,6 +1,6 @@
 VOWVY — STATE DOCUMENT (v4 — CURRENT)
 
-Last updated: June 6, 2026
+Last updated: June 7, 2026
 
 ═══════════════════════════════════════════════════════════
 
@@ -247,6 +247,32 @@ Not started. Prerequisite checklist:
 
 Tech stack: React + Firebase Firestore + Firebase Storage + Claude API
 Build begins: Session 3+. Use Claude Code in Terminal for all build work.
+
+═══════════════════════════════════════════════════════════
+
+VOWVY APP — PENDING ACTIONS
+
+═══════════════════════════════════════════════════════════
+
+APP CHECK — action needed in a few days
+
+Firebase App Check is live but in MONITORING MODE ONLY.
+Bots are not yet blocked. Enforcement is the step that actually blocks them.
+
+When to act: once the App Check graph in Firebase Console shows that
+essentially all traffic has valid tokens (give it a few days of real usage).
+
+How to enforce:
+  Firebase Console → App Check → APIs tab
+  Flip Firestore, Storage, and Auth to Enforced — one at a time.
+  Watch for errors after each flip before doing the next.
+
+Also still needed (manual — CLI cannot do this):
+  Firebase Console → App Check → Apps → vowvy-app
+  → overflow menu (⋮) → Manage provider → enter reCAPTCHA secret key
+
+App: https://vowvy-1ba5f.web.app
+Repo: https://github.com/MultigrainIntl/vowvy-app
 
 ═══════════════════════════════════════════════════════════
 
