@@ -250,6 +250,38 @@ Build begins: Session 3+. Use Claude Code in Terminal for all build work.
 
 ═══════════════════════════════════════════════════════════
 
+NEXT MAJOR MILESTONE — Sharing & Collaboration (Phase 2)
+
+═══════════════════════════════════════════════════════════
+
+PERSONAL SHARING
+
+  Owner invites collaborator by email. Collaborator receives a link,
+  signs up or signs in, and can add photos and containers to the shared
+  project. Owner sees all contributions. Owner can revoke access at any
+  time. Contributor sees their own contribution history.
+
+ROCKY MOUNTAIN BOX CO. USE CASE
+
+  Each physical box has a pre-printed QR code. Customer scans it and is
+  automatically added to that box's project. Whole family can scan the
+  same QR and contribute. When box is returned, owner clears all data
+  with one click and the QR is reused for the next customer.
+
+DATA MODEL
+
+  Each project gets a collaborators subcollection:
+
+    collaborators/{uid}
+      email:      string
+      role:       "contributor" | "owner"
+      expiresAt:  timestamp | null
+      revokedAt:  timestamp | null
+
+  Firebase security rules check collaborator status on every read/write.
+
+═══════════════════════════════════════════════════════════
+
 FUTURE OPPORTUNITIES
 
 ═══════════════════════════════════════════════════════════
@@ -267,22 +299,38 @@ VOWVY APP — PENDING ACTIONS
 
 ═══════════════════════════════════════════════════════════
 
-APP CHECK — action needed in a few days
+APP CHECK — DISABLED (needs proper setup before re-enabling)
 
-Firebase App Check is live but in MONITORING MODE ONLY.
-Bots are not yet blocked. Enforcement is the step that actually blocks them.
+App Check caused a 401 on sign-in because the reCAPTCHA secret key was never
+registered in the Firebase Console. Even in monitoring mode, missing secret
+registration breaks auth token validation.
 
-When to act: once the App Check graph in Firebase Console shows that
-essentially all traffic has valid tokens (give it a few days of real usage).
+initializeAppCheck is currently commented out in src/firebase.ts.
 
-How to enforce:
-  Firebase Console → App Check → APIs tab
-  Flip Firestore, Storage, and Auth to Enforced — one at a time.
-  Watch for errors after each flip before doing the next.
+TO RE-ENABLE — do these steps in order:
 
-Also still needed (manual — CLI cannot do this):
-  Firebase Console → App Check → Apps → vowvy-app
-  → overflow menu (⋮) → Manage provider → enter reCAPTCHA secret key
+  STEP 1 (manual — Firebase Console):
+    Firebase Console → App Check → Apps → vowvy-app
+    → overflow menu (⋮) → Manage provider
+    → enter reCAPTCHA secret key: 6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
+
+  STEP 2 (manual — reCAPTCHA admin):
+    recaptcha.google.com/admin → select the Vowvy site key
+    → verify vowvy-1ba5f.web.app is listed as an allowed domain
+    (also add app.vowvy.com once that subdomain is live)
+
+  STEP 3 (code):
+    Uncomment initializeAppCheck block in src/firebase.ts
+    Rebuild and deploy: npm run build && firebase deploy --only hosting:vowvy-1ba5f --project vowvy-1ba5f
+    Test sign-in before proceeding.
+
+  STEP 4 (enforcement — only after sign-in confirmed working):
+    Firebase Console → App Check → APIs tab
+    Flip Firestore, Storage, and Auth to Enforced — one at a time.
+    Watch for errors after each flip before doing the next.
+
+Site key (public):  6LdbjREtAAAAAGxozqM7Nnbi7DmKUTzE6sDSH6vI
+Secret key:         6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
 
 App: https://vowvy-1ba5f.web.app
 Repo: https://github.com/MultigrainIntl/vowvy-app
