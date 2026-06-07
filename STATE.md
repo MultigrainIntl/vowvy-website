@@ -1,4 +1,4 @@
-VOWVY — STATE DOCUMENT (v4 — CURRENT)
+VOWVY — STATE DOCUMENT (v5 — CURRENT)
 
 Last updated: June 7, 2026
 
@@ -53,7 +53,7 @@ Claude chat — planning and decisions:
 
 ═══════════════════════════════════════════════════════════
 
-LIVE SITE
+LIVE SITE (MARKETING)
 
 ═══════════════════════════════════════════════════════════
 
@@ -64,7 +64,21 @@ GitHub user: MultigrainIntl
 
 ═══════════════════════════════════════════════════════════
 
-SITE STRUCTURE
+LIVE APP
+
+═══════════════════════════════════════════════════════════
+
+Primary URL:  https://app.vowvy.com
+Backup URL:   https://vowvy-1ba5f.web.app
+App repo:     https://github.com/MultigrainIntl/vowvy-app (local: /Users/georgejibilian/vowvy-app)
+Firebase project: vowvy-1ba5f
+Auth domain:  app.vowvy.com (custom domain — verified and live, fixes Safari ITP)
+Auth mode:    LOCAL persistence (default — survives tab closes)
+App Check:    DISABLED (see Pending Actions)
+
+═══════════════════════════════════════════════════════════
+
+SITE STRUCTURE (Marketing)
 
 ═══════════════════════════════════════════════════════════
 
@@ -128,6 +142,7 @@ WHAT IS WORKING ✅
 
 ═══════════════════════════════════════════════════════════
 
+MARKETING SITE
 - Full landing page live and rendering correctly
 - Header: mark (left) + VOWVY + tagline (right), 64px mark height
 - Brand colors correct throughout
@@ -138,19 +153,45 @@ WHAT IS WORKING ✅
 - Waitlist form shows confirmation state (UI only)
 - Footer: VOWVY wordmark in white, no tagline
 
+APP (live at app.vowvy.com)
+- Google sign-in (auth domain app.vowvy.com — Safari ITP safe)
+- LOCAL persistence — sessions survive tab closes
+- Password reset
+- Locations and containers
+- Photo upload and capture (iOS camera, file picker)
+- AI-generated tags and description via Gemini 2.5 Flash
+  - Tags fire on ANY new photo addition (not just first)
+- Full-text search across names, locations, tags, descriptions, notes, photo descriptions
+- Container notes with soft delete
+- Branded QR code per container with deep-link support
+  - QR URL: https://app.vowvy.com/container/{containerId}
+  - Print label: URL hidden on print via @media print
+- iPad Safari compatibility:
+  - Images served via proxyImage Cloud Function (bypasses Safari CORS block)
+  - useWebWorker: false for image compression
+  - getIdToken(true) force-refresh before all writes
+  - 15-second timeout on photo add
+- Responsive tablet layout (two-column grid at 768px+)
+- Photo-level descriptions (editable in lightbox, included in search)
+- Individual AI tag deletion (✕ button on each tag, hard-delete)
+- Soft-delete trash with 30-day retention:
+  - Containers, photos, and notes all use deletedAt timestamps
+  - /trash route with Recently Deleted screen
+  - Restore with optimistic feedback ("Restored" inline for 1.5s)
+  - Delete Forever with confirmation + optimistic feedback
+- viewingOwnerUid threaded through MainScreen (foundation for collaborator sharing)
+- ContainerScreen accessible via QR deep link — add photos and notes from it
+
 ═══════════════════════════════════════════════════════════
 
 WHAT IS BROKEN / TODO ❌
 
 ═══════════════════════════════════════════════════════════
 
-PRIORITY 1 — Urgent
-- [x] Formspree: connected — signups captured via shared Multigrain form (site=vowvy tag)
+MARKETING SITE
 - [ ] Footer logo: dark halo on dark background
 - [ ] DNS: www.vowvy.com not pointing to GitHub Pages
       (GoDaddy forwarding active — must remove first)
-
-PRIORITY 2 — Soon
 - [ ] Waitlist animation: V→checkmark morph needs review
 - [ ] Checkmark PNG: sand wing turned grey
 - [ ] OG image (1200×630px)
@@ -158,9 +199,12 @@ PRIORITY 2 — Soon
 - [ ] Favicons (32px, 16px)
 - [ ] Real vector logo file
 
-PRIORITY 3 — Later
-- [ ] vowvy.ai domain (may purchase)
-- [ ] Additional pages
+APP — KNOWN ISSUES PARKED
+- [ ] App Check disabled — needs reCAPTCHA reconfig (see Pending Actions)
+- [ ] Email notifications (SendGrid SMTP returns 401; try Resend or SendGrid Web API next)
+- [ ] Tag–photo association: ghost tags persist after photo deletion
+      (AI tags belong to the container, not individual photos — needs data model refactor)
+- [ ] Collaborator invite UI not built yet (foundation deployed, UI next)
 
 ═══════════════════════════════════════════════════════════
 
@@ -236,17 +280,64 @@ Permanent fix: vector file (AI/SVG/EPS) from the designer.
 
 ═══════════════════════════════════════════════════════════
 
-MVP BUILD STATUS
+VOWVY APP — PENDING ACTIONS
 
 ═══════════════════════════════════════════════════════════
 
-Not started. Prerequisite checklist:
-- [ ] Node.js installed (Terminal: node --version)
-- [ ] Landing page stable (Formspree, DNS, footer logo resolved)
-- [ ] Firebase project created
+APP CHECK — DISABLED (needs proper setup before re-enabling)
 
-Tech stack: React + Firebase Firestore + Firebase Storage + Claude API
-Build begins: Session 3+. Use Claude Code in Terminal for all build work.
+App Check caused a 401 on sign-in because the reCAPTCHA secret key was never
+registered in the Firebase Console. Even in monitoring mode, missing secret
+registration breaks auth token validation.
+
+initializeAppCheck is currently commented out in src/firebase.ts.
+
+TO RE-ENABLE — do these steps in order:
+
+  STEP 1 (manual — Firebase Console):
+    Firebase Console → App Check → Apps → vowvy-app
+    → overflow menu (⋮) → Manage provider
+    → enter reCAPTCHA secret key: 6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
+
+  STEP 2 (manual — reCAPTCHA admin):
+    recaptcha.google.com/admin → select the Vowvy site key
+    → verify vowvy-1ba5f.web.app is listed as an allowed domain
+    (also add app.vowvy.com)
+
+  STEP 3 (code):
+    Uncomment initializeAppCheck block in src/firebase.ts
+    Rebuild and deploy: npm run build && firebase deploy --only hosting --project vowvy-1ba5f
+    Test sign-in before proceeding.
+
+  STEP 4 (enforcement — only after sign-in confirmed working):
+    Firebase Console → App Check → APIs tab
+    Flip Firestore, Storage, and Auth to Enforced — one at a time.
+
+Site key (public):  6LdbjREtAAAAAGxozqM7Nnbi7DmKUTzE6sDSH6vI
+Secret key:         6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
+
+COLLABORATOR INVITES — FOUNDATION DEPLOYED, UI NEXT
+
+  Data model deployed:
+    users/{ownerUid}/collaborators/{collaboratorUid} — status, email, acceptedAt
+    invites/{token} — ownerUid, status (pending→active), single-use
+    AcceptInviteScreen live at /invite/{token}
+    viewingOwnerUid threaded through MainScreen (all Firestore/Storage paths)
+    Firestore rules: isActiveCollaborator() check on container reads/writes
+
+  Still to build:
+    - Owner UI to generate and copy invite link
+    - Shared inventory switcher in MainScreen header
+    - Revoke collaborator access
+
+EMAIL NOTIFICATIONS — PARKED
+
+  Firebase Trigger Email extension installed but SMTP returns 401 despite
+  correct secret in Secret Manager. Likely a SendGrid domain auth issue.
+  Options for next attempt:
+    1. Resend.com — simpler API, better DX
+    2. SendGrid Web API (not SMTP) — more reliable than SMTP
+  Not blocking anything. Invite links work without email.
 
 ═══════════════════════════════════════════════════════════
 
@@ -256,10 +347,9 @@ NEXT MAJOR MILESTONE — Sharing & Collaboration (Phase 2)
 
 PERSONAL SHARING
 
-  Owner invites collaborator by email. Collaborator receives a link,
-  signs up or signs in, and can add photos and containers to the shared
-  project. Owner sees all contributions. Owner can revoke access at any
-  time. Contributor sees their own contribution history.
+  Owner invites collaborator via shareable link (no email required).
+  Collaborator signs in, accepts invite, and can view and add to the
+  shared inventory. Owner sees all contributions. Owner can revoke access.
 
 ROCKY MOUNTAIN BOX CO. USE CASE
 
@@ -268,17 +358,14 @@ ROCKY MOUNTAIN BOX CO. USE CASE
   same QR and contribute. When box is returned, owner clears all data
   with one click and the QR is reused for the next customer.
 
-DATA MODEL
+DATA MODEL (deployed)
 
-  Each project gets a collaborators subcollection:
+  users/{ownerUid}/collaborators/{uid}
+    email, displayName, status: "active" | "revoked", inviteToken, acceptedAt
 
-    collaborators/{uid}
-      email:      string
-      role:       "contributor" | "owner"
-      expiresAt:  timestamp | null
-      revokedAt:  timestamp | null
-
-  Firebase security rules check collaborator status on every read/write.
+  invites/{token}
+    ownerUid, ownerDisplayName, status: "pending" | "active" | "revoked"
+    acceptedByUid, acceptedAt
 
 ═══════════════════════════════════════════════════════════
 
@@ -326,100 +413,3 @@ Rocky Mountain Box Co. partnership
   and QR reused for the next customer.
   Contact: rockymountainboxco.com
   Status: not contacted
-
-═══════════════════════════════════════════════════════════
-
-VOWVY APP — PENDING ACTIONS
-
-═══════════════════════════════════════════════════════════
-
-APP CHECK — DISABLED (needs proper setup before re-enabling)
-
-App Check caused a 401 on sign-in because the reCAPTCHA secret key was never
-registered in the Firebase Console. Even in monitoring mode, missing secret
-registration breaks auth token validation.
-
-initializeAppCheck is currently commented out in src/firebase.ts.
-
-TO RE-ENABLE — do these steps in order:
-
-  STEP 1 (manual — Firebase Console):
-    Firebase Console → App Check → Apps → vowvy-app
-    → overflow menu (⋮) → Manage provider
-    → enter reCAPTCHA secret key: 6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
-
-  STEP 2 (manual — reCAPTCHA admin):
-    recaptcha.google.com/admin → select the Vowvy site key
-    → verify vowvy-1ba5f.web.app is listed as an allowed domain
-    (also add app.vowvy.com once that subdomain is live)
-
-  STEP 3 (code):
-    Uncomment initializeAppCheck block in src/firebase.ts
-    Rebuild and deploy: npm run build && firebase deploy --only hosting:vowvy-1ba5f --project vowvy-1ba5f
-    Test sign-in before proceeding.
-
-  STEP 4 (enforcement — only after sign-in confirmed working):
-    Firebase Console → App Check → APIs tab
-    Flip Firestore, Storage, and Auth to Enforced — one at a time.
-    Watch for errors after each flip before doing the next.
-
-Site key (public):  6LdbjREtAAAAAGxozqM7Nnbi7DmKUTzE6sDSH6vI
-Secret key:         6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
-
-AUTH DOMAIN — action needed once app.vowvy.com is verified
-
-  app.vowvy.com CNAME is set in GoDaddy (→ vowvy-1ba5f.web.app) but
-  Firebase Hosting hasn't verified it yet (shows "Needs setup").
-
-  Safari ITP blocks cross-origin IndexedDB auth persistence when
-  authDomain is firebaseapp.com — causes sign-in failures on iPad Safari.
-  Workaround: browserSessionPersistence (sessionStorage) is live now.
-  Downside: users must re-login when they close the tab.
-
-  Permanent fix — once Firebase verifies app.vowvy.com:
-    1. src/firebase.ts → change authDomain to "app.vowvy.com"
-    2. Remove the setPersistence(auth, browserSessionPersistence) call
-    3. Rebuild and deploy: npm run build &&
-       firebase deploy --only hosting:vowvy-1ba5f --project vowvy-1ba5f
-    4. Test sign-in on iPad Safari — session should persist across tab closes
-
-App: https://vowvy-1ba5f.web.app
-Repo: https://github.com/MultigrainIntl/vowvy-app
-
-═══════════════════════════════════════════════════════════
-
-NEXT SESSION PROMPT — Copy/paste to start Session 2
-
-═══════════════════════════════════════════════════════════
-
----
-Continue Vowvy — Session 2.
-
-Read before doing anything:
-- STATE.md (this file — in repo root)
-- SESSION_LOG.md (this repo root)
-
-Work through this checklist ONE STEP AT A TIME.
-Show every change before making it. Never touch what is working.
-
-[ ] STEP 1: node --version in Terminal
-    Error → nodejs.org → download LTS → install
-
-[ ] STEP 2: Fix footer logo halo
-    Do NOT touch nav logo. Show fix → wait for approval → push.
-
-[ ] STEP 3: Formspree setup
-    Follow instructions in State Document.
-    Show code change → approval → push → test with real email.
-
-[ ] STEP 4: DNS for www.vowvy.com
-    Follow GoDaddy instructions in State Document.
-    Test in Firefox Private Window only.
-
-[ ] STEP 5: Review V→checkmark animation
-
-[ ] STEP 6 (only if Node confirmed): Firebase setup
-
-Rules: Show before doing. Approve before pushing. Never touch what works.
-MVP scope is locked — five features only. No additions.
----

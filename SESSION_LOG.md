@@ -1,6 +1,76 @@
-VOWVY — SESSION LOG (v2)
+VOWVY — SESSION LOG (v3)
 
-Last updated: June 6, 2026
+Last updated: June 7, 2026
+
+═══════════════════════════════════════════════════════════
+
+SESSION 2 — June 7, 2026 (Sunday marathon build)
+
+═══════════════════════════════════════════════════════════
+
+DECISIONS MADE
+--------------
+- Collaborator invites will use shareable links only (no email) — SendGrid SMTP
+  blocked after extended debugging; link-only approach is simpler and sufficient
+- Soft delete adopted for all content types (containers, photos, notes) with
+  30-day retention; no hard deletes from the main UI
+- Photo data model migrated to PhotoItem[] with per-photo description field;
+  legacy photoUrls/photoStoragePaths preserved and written alongside for
+  Cloud Function compatibility and backward compat
+- Invite links are single-use (status: pending → active on first accept)
+- app.vowvy.com authDomain permanently set (Safari ITP fix)
+
+WHAT WAS BUILT
+--------------
+- HTTPS live on both domains: app.vowvy.com and vowvy-1ba5f.web.app
+- authDomain changed to app.vowvy.com; LOCAL persistence restored
+  (no more sessionStorage — sessions survive tab closes)
+- Password reset flow
+- Container notes with per-note soft delete and append-friendly UX
+- Branded QR codes per container with deep-link URL (app.vowvy.com/container/{id})
+  - Print label with QR code, container name, location, editable tagline
+  - QR URL hidden on printed labels via @media print
+- iPad Safari compatibility stack:
+  - proxyImage Cloud Function (server-side image proxy, bypasses CORS)
+  - useWebWorker: false for image compression
+  - getIdToken(true) force-refresh before all writes
+  - Promise.race 15-second timeout on photo add
+- Responsive tablet layout (two-column grid at 768px+)
+- Five planned improvements (shipped together):
+  1. AI tagging on any new photo add (was: only fired on first photo)
+  2. QR print URL hidden from printed label
+  3. Photo-level descriptions — PhotoItem[] model, description editor in lightbox
+  4. Individual AI tag deletion — ✕ button per tag, hard-delete from array
+  5. Soft-delete trash — deletedAt timestamps, /trash route, Restore + Delete Forever
+     with optimistic UI feedback ("Restored"/"Deleted" inline for 1.5s)
+- Collaborator invite foundation:
+  - invites/{token} Firestore collection
+  - AcceptInviteScreen at /invite/{token}
+  - users/{uid}/collaborators/{uid} subcollection
+  - Firestore rules: isActiveCollaborator() check
+  - viewingOwnerUid threaded through all Firestore/Storage paths in MainScreen
+
+BUGS FIXED
+----------
+- Photo merge regression: mapContainer had either/or logic (photos[] OR photoUrls[])
+  instead of merging both; containers with partially-migrated photos[] lost legacy
+  photos from the display. Fixed by merging: start with photos[], append any
+  photoUrl not already represented.
+- Photo write path: arrayUnion(photoItem) on a non-existent photos[] field created
+  a single-item array, discarding all legacy photos. Fixed by writing the full
+  merged array from React state.
+- Restore button silent failure: { ...p, deletedAt: undefined } causes Firestore
+  to throw "Unsupported field value: undefined". Fixed by destructuring deletedAt
+  out of the spread instead of setting it to undefined.
+
+DEBUGGING DEAD ENDS (don't retry without new info)
+----------------------------------------------------
+- Firebase Trigger Email extension + SendGrid SMTP: Extension installed and
+  configured. SendGrid API key updated directly in Secret Manager (v2). Extension
+  redeployed twice. Test emails never delivered — SendGrid activity shows zero
+  receives. Likely cause: SendGrid domain authentication not complete, or SMTP
+  route blocked. Extension reads correct secret but SMTP returns 401. Parked.
+  Try Resend or SendGrid Web API (not SMTP) next time.
 
 ═══════════════════════════════════════════════════════════
 
