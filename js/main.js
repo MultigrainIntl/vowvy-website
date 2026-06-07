@@ -46,48 +46,6 @@
 })();
 
 
-// ---- WAITLIST FORM ----
-(function () {
-  const form    = document.getElementById('waitlistForm');
-  const success = document.getElementById('waitlistSuccess');
-  const input   = document.getElementById('emailInput');
-  if (!form) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = input.value.trim();
-    if (!email || !email.includes('@')) {
-      input.style.borderColor = 'rgba(201,106,61,0.6)';
-      input.focus();
-      return;
-    }
-
-    fetch('https://formspree.io/f/xpqeadrq', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({ email, site: 'vowvy' })
-    })
-    .then(response => {
-      if (response.ok) {
-        form.hidden = true;
-        success.hidden = false;
-      } else {
-        input.style.borderColor = 'rgba(201,106,61,0.6)';
-      }
-    })
-    .catch(() => {
-      input.style.borderColor = 'rgba(201,106,61,0.6)';
-    });
-  });
-
-  input.addEventListener('input', function () {
-    input.style.borderColor = '';
-  });
-})();
-
 
 // ---- SMOOTH scroll for anchor links ----
 (function () {
