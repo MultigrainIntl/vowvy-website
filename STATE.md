@@ -286,6 +286,10 @@ FUTURE OPPORTUNITIES
 
 ═══════════════════════════════════════════════════════════
 
+Multi-language support
+  Spanish first. Scope: app UI, landing page, and Gemini prompts.
+  Auto-detect browser language on first load, manual switcher in header.
+
 Rocky Mountain Box Co. partnership
   Concept: pre-printed QR codes on rental boxes. Customer scans to
   auto-create a container in Vowvy. Data cleared when box is returned
