@@ -250,6 +250,19 @@ Build begins: Session 3+. Use Claude Code in Terminal for all build work.
 
 ═══════════════════════════════════════════════════════════
 
+FUTURE OPPORTUNITIES
+
+═══════════════════════════════════════════════════════════
+
+Rocky Mountain Box Co. partnership
+  Concept: pre-printed QR codes on rental boxes. Customer scans to
+  auto-create a container in Vowvy. Data cleared when box is returned
+  and QR reused for the next customer.
+  Contact: rockymountainboxco.com
+  Status: not contacted
+
+═══════════════════════════════════════════════════════════
+
 VOWVY APP — PENDING ACTIONS
 
 ═══════════════════════════════════════════════════════════
