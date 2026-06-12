@@ -70,7 +70,7 @@ LIVE APP
 
 Primary URL:  https://app.vowvy.com
 Backup URL:   https://vowvy-1ba5f.web.app
-App repo:     https://github.com/MultigrainIntl/vowvy-app (local: /Users/georgejibilian/vowvy-app)
+App repo:     https://github.com/MultigrainIntl/vowvy-app
 Firebase project: vowvy-1ba5f
 Auth domain:  app.vowvy.com (custom domain — verified and live, fixes Safari ITP)
 Auth mode:    LOCAL persistence (default — survives tab closes)
@@ -213,7 +213,7 @@ FORMSPREE SETUP INSTRUCTIONS
 ═══════════════════════════════════════════════════════════
 
 Using the shared Multigrain Formspree form (https://formspree.io/f/xpqeadrq),
-tagged with hidden field site=vowvy. Signups arrive at george@multigrain.com
+tagged with hidden field site=vowvy. Signups arrive at the owner's inbox,
 filtered by tag.
 
 ═══════════════════════════════════════════════════════════
@@ -297,7 +297,7 @@ TO RE-ENABLE — do these steps in order:
   STEP 1 (manual — Firebase Console):
     Firebase Console → App Check → Apps → vowvy-app
     → overflow menu (⋮) → Manage provider
-    → enter reCAPTCHA secret key: 6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
+    → enter reCAPTCHA secret key: [REDACTED - rotate in Firebase/reCAPTCHA console]
 
   STEP 2 (manual — reCAPTCHA admin):
     recaptcha.google.com/admin → select the Vowvy site key
@@ -314,7 +314,7 @@ TO RE-ENABLE — do these steps in order:
     Flip Firestore, Storage, and Auth to Enforced — one at a time.
 
 Site key (public):  6LdbjREtAAAAAGxozqM7Nnbi7DmKUTzE6sDSH6vI
-Secret key:         6LdbjREtAAAAEIV-2EXAjG58cSe4WyZmBd8u_k2
+Secret key:         [REDACTED - rotate in Firebase/reCAPTCHA console]
 
 COLLABORATOR INVITES — FOUNDATION DEPLOYED, UI NEXT
 
