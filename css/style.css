@@ -217,13 +217,12 @@ p.light-muted { color: var(--sand); }
   font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--muted);
-  background: transparent;
+  background: var(--ivory);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   padding: 6px 12px;
+  min-width: 52px;
   cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
   outline: none;
 }
 .lang-select:hover,
