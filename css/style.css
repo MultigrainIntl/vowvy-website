@@ -211,6 +211,28 @@ p.light-muted { color: var(--sand); }
   line-height: 1;
 }
 .nav-cta { padding: 10px 22px; font-size: 14px; }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.lang-select {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+.lang-select:hover,
+.lang-select:focus { color: var(--charcoal); border-color: var(--terra); }
+
+@media (max-width: 480px) {
+  .nav-right { gap: 8px; }
+  .lang-select { padding: 5px 8px; font-size: 11px; }
+}
 
 /* ---- HERO ---- */
 .hero {

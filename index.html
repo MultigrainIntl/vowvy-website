@@ -42,10 +42,17 @@
         <img src="assets/images/logo-mark-only.png" alt="Vowvy" class="logo-mark" />
         <div class="logo-text">
           <div class="logo-wordmark">VOWVY</div>
-          <div class="logo-tagline">A SEARCHABLE MEMORY FOR PHYSICAL THINGS</div>
+          <div class="logo-tagline" data-i18n="nav.tagline">A SEARCHABLE MEMORY FOR PHYSICAL THINGS</div>
         </div>
       </a>
-      <a href="https://app.vowvy.com" class="btn btn-primary nav-cta">Get Started</a>
+      <div class="nav-right">
+        <select id="langSelect" class="lang-select" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+          <option value="pt">PT</option>
+        </select>
+        <a href="https://app.vowvy.com" class="btn btn-primary nav-cta" data-i18n="nav.cta">Get Started</a>
+      </div>
     </div>
   </nav>
 
@@ -53,18 +60,18 @@
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-text">
-        <h1 class="hero-headline fade-up delay-1">
+        <h1 class="hero-headline fade-up delay-1" data-i18n="hero.headline">
           Finally know what you have,<br />
           where it is, and what you're<br />
           <em>ready to do with it.</em>
         </h1>
-        <p class="hero-sub fade-up delay-2">
+        <p class="hero-sub fade-up delay-2" data-i18n="hero.sub">
           VOWVY helps people and teams photograph, organize, find, share, document,
           move, and sell the things they own — without trying to remember everything themselves.
         </p>
         <div class="hero-actions fade-up delay-3">
-          <a href="https://app.vowvy.com" class="btn btn-primary btn-lg">Get Started →</a>
-          <a href="#how" class="btn btn-ghost">See how it works</a>
+          <a href="https://app.vowvy.com" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Get Started →</a>
+          <a href="#how" class="btn btn-ghost" data-i18n="hero.cta2">See how it works</a>
         </div>
       </div>
       <div class="hero-visual fade-up delay-4" aria-hidden="true">
@@ -107,9 +114,9 @@
   <section class="section" id="problem">
     <div class="container">
       <div class="section-intro reveal">
-        <div class="eyebrow">THE REALITY</div>
-        <h2>Life doesn't organize itself<br /><em>before you need to find something.</em></h2>
-        <p class="section-sub">
+        <div class="eyebrow" data-i18n="problem.eyebrow">THE REALITY</div>
+        <h2 data-i18n="problem.h2">Life doesn't organize itself<br /><em>before you need to find something.</em></h2>
+        <p class="section-sub" data-i18n="problem.sub">
           The junk drawer. The storage unit from three moves ago. Your parents' garage.
           The boxes labeled "misc." We've all been there — and the chaos is exhausting.
         </p>
@@ -117,18 +124,18 @@
       <div class="grid-3 problem-cards">
         <div class="dark-card reveal delay-1">
           <div class="card-glow"></div>
-          <h3>"Where did I put that?"</h3>
-          <p>The question that costs hours.</p>
+          <h3 data-i18n="problem.card1.h3">"Where did I put that?"</h3>
+          <p data-i18n="problem.card1.p">The question that costs hours.</p>
         </div>
         <div class="dark-card reveal delay-2">
           <div class="card-glow"></div>
-          <h3>Boxes labeled "misc."</h3>
-          <p>Thousands of forgotten decisions.</p>
+          <h3 data-i18n="problem.card2.h3">Boxes labeled "misc."</h3>
+          <p data-i18n="problem.card2.p">Thousands of forgotten decisions.</p>
         </div>
         <div class="dark-card reveal delay-3">
           <div class="card-glow"></div>
-          <h3>Moving again.</h3>
-          <p>Starting from zero, again.</p>
+          <h3 data-i18n="problem.card3.h3">Moving again.</h3>
+          <p data-i18n="problem.card3.p">Starting from zero, again.</p>
         </div>
       </div>
     </div>
@@ -138,35 +145,35 @@
   <section class="section section-beige" id="how">
     <div class="container">
       <div class="section-header reveal">
-        <div class="eyebrow">HOW IT WORKS</div>
-        <h2>Three steps.<br /><em>Endless clarity.</em></h2>
+        <div class="eyebrow" data-i18n="how.eyebrow">HOW IT WORKS</div>
+        <h2 data-i18n="how.h2">Three steps.<br /><em>Endless clarity.</em></h2>
       </div>
       <div class="how-layout">
         <div class="steps">
           <div class="step reveal delay-1">
             <div class="step-num">1</div>
             <div class="step-body">
-              <h3>Snap a photo</h3>
-              <p>Point your phone at any box, drawer, shelf, or room. Don't organize first — just capture.</p>
+              <h3 data-i18n="how.step1.h3">Snap a photo</h3>
+              <p data-i18n="how.step1.p">Point your phone at any box, drawer, shelf, or room. Don't organize first — just capture.</p>
             </div>
           </div>
           <div class="step reveal delay-2">
             <div class="step-num">2</div>
             <div class="step-body">
-              <h3>AI catalogs everything</h3>
-              <p>Vowvy reads the photo and generates descriptive tags for every visible item — instantly.</p>
+              <h3 data-i18n="how.step2.h3">AI catalogs everything</h3>
+              <p data-i18n="how.step2.p">Vowvy reads the photo and generates descriptive tags for every visible item — instantly.</p>
             </div>
           </div>
           <div class="step reveal delay-3">
             <div class="step-num">3</div>
             <div class="step-body">
-              <h3>Find anything, forever</h3>
-              <p>Search by item, category, or keyword. Vowvy tells you exactly which box and where that box lives.</p>
+              <h3 data-i18n="how.step3.h3">Find anything, forever</h3>
+              <p data-i18n="how.step3.p">Search by item, category, or keyword. Vowvy tells you exactly which box and where that box lives.</p>
             </div>
           </div>
         </div>
         <div class="search-preview reveal delay-2">
-          <div class="eyebrow">SEARCH RESULT</div>
+          <div class="eyebrow" data-i18n="how.search.eyebrow">SEARCH RESULT</div>
           <div class="search-result">
             <div class="result-query">"vintage lamp"</div>
             <div class="result-loc"><span class="dot"></span> Garage · Box 3</div>
@@ -188,8 +195,8 @@
   <section class="section" id="uses">
     <div class="container">
       <div class="section-header reveal">
-        <div class="eyebrow">MADE FOR REAL LIFE</div>
-        <h2>Useful at home,<br /><em>at school, and at work.</em></h2>
+        <div class="eyebrow" data-i18n="uses.eyebrow">MADE FOR REAL LIFE</div>
+        <h2 data-i18n="uses.h2">Useful at home,<br /><em>at school, and at work.</em></h2>
       </div>
       <ul class="use-rows">
 
@@ -203,8 +210,8 @@
             </svg>
           </span>
           <div class="use-row-text">
-            <strong>Home &amp; storage</strong>
-            <span>Remember what's in boxes, closets, garages, basements, and storage areas.</span>
+            <strong data-i18n="uses.row1.strong">Home &amp; storage</strong>
+            <span data-i18n="uses.row1.span">Remember what's in boxes, closets, garages, basements, and storage areas.</span>
           </div>
         </li>
 
@@ -218,8 +225,8 @@
             </svg>
           </span>
           <div class="use-row-text">
-            <strong>Moving &amp; dorms</strong>
-            <span>Track belongings before, during, and after a move.</span>
+            <strong data-i18n="uses.row2.strong">Moving &amp; dorms</strong>
+            <span data-i18n="uses.row2.span">Track belongings before, during, and after a move.</span>
           </div>
         </li>
 
@@ -233,8 +240,8 @@
             </svg>
           </span>
           <div class="use-row-text">
-            <strong>Families &amp; estates</strong>
-            <span>Organize keepsakes, valuables, donations, and items to sell.</span>
+            <strong data-i18n="uses.row3.strong">Families &amp; estates</strong>
+            <span data-i18n="uses.row3.span">Organize keepsakes, valuables, donations, and items to sell.</span>
           </div>
         </li>
 
@@ -247,8 +254,8 @@
             </svg>
           </span>
           <div class="use-row-text">
-            <strong>Collections &amp; valuables</strong>
-            <span>Document books, art, memorabilia, antiques, and personal collections.</span>
+            <strong data-i18n="uses.row4.strong">Collections &amp; valuables</strong>
+            <span data-i18n="uses.row4.span">Document books, art, memorabilia, antiques, and personal collections.</span>
           </div>
         </li>
 
@@ -263,8 +270,8 @@
             </svg>
           </span>
           <div class="use-row-text">
-            <strong>Work &amp; shared spaces</strong>
-            <span>Keep track of supplies, equipment, samples, and shared storage.</span>
+            <strong data-i18n="uses.row5.strong">Work &amp; shared spaces</strong>
+            <span data-i18n="uses.row5.span">Keep track of supplies, equipment, samples, and shared storage.</span>
           </div>
         </li>
 
@@ -278,8 +285,8 @@
             </svg>
           </span>
           <div class="use-row-text">
-            <strong>Insurance documentation</strong>
-            <span>Create a photo-based record that may help when preparing an inventory for insurance purposes.</span>
+            <strong data-i18n="uses.row6.strong">Insurance documentation</strong>
+            <span data-i18n="uses.row6.span">Create a photo-based record that may help when preparing an inventory for insurance purposes.</span>
           </div>
         </li>
 
@@ -291,18 +298,18 @@
   <section class="section section-beige" id="why">
     <div class="container">
       <div class="why-inner reveal">
-        <div class="eyebrow">WHY VOWVY?</div>
-        <h2>Value Only What<br /><em>Values You.</em></h2>
-        <p class="why-body">
+        <div class="eyebrow" data-i18n="why.eyebrow">WHY VOWVY?</div>
+        <h2 data-i18n="why.h2">Value Only What<br /><em>Values You.</em></h2>
+        <p class="why-body" data-i18n="why.body1">
           VOWVY stands for <em>Value Only What Values You</em> — a reminder that organizing your things
           isn't about keeping everything. It's about gaining clarity on what matters.
         </p>
-        <p class="why-body">
+        <p class="why-body" data-i18n="why.body2">
           Most people aren't trying to create a permanent archive. They're deciding: what do I keep?
           What's worth protecting? What's ready to be shared, sold, donated, or let go?
           VOWVY gives you the photo-based inventory to make those decisions with confidence.
         </p>
-        <p class="why-callout">Keep what matters. Let go of what doesn't.</p>
+        <p class="why-callout" data-i18n="why.callout">Keep what matters. Let go of what doesn't.</p>
       </div>
     </div>
   </section>
@@ -312,9 +319,9 @@
     <div class="container">
       <div class="collab-layout grid-2">
         <div class="collab-text reveal">
-          <div class="eyebrow eyebrow-light">TOGETHER</div>
-          <h2 class="light">Large tasks become<br /><em class="terra">lighter, together.</em></h2>
-          <p class="light-muted">
+          <div class="eyebrow eyebrow-light" data-i18n="together.eyebrow">TOGETHER</div>
+          <h2 class="light" data-i18n="together.h2">Large tasks become<br /><em class="terra">lighter, together.</em></h2>
+          <p class="light-muted" data-i18n="together.p">
             Invite family or friends to contribute photos from their own phones.
             A garage that takes one person a weekend takes a family an afternoon.
           </p>
@@ -324,11 +331,11 @@
             <div class="avatar">J</div>
             <div class="avatar">S</div>
             <div class="avatar">+3</div>
-            <span class="avatar-label">organizing together</span>
+            <span class="avatar-label" data-i18n="together.avatarLabel">organizing together</span>
           </div>
         </div>
         <div class="activity-feed reveal delay-2">
-          <div class="eyebrow">ACTIVITY</div>
+          <div class="eyebrow" data-i18n="together.activity.eyebrow">ACTIVITY</div>
           <div class="activity-item">
             <div class="activity-avatar">M</div>
             <div class="activity-body">
@@ -371,8 +378,8 @@
     <div class="container">
       <div class="philosophy-inner reveal">
         <div class="philosophy-mark" aria-hidden="true"></div>
-        <blockquote>"Capture first.<br />Organize later."</blockquote>
-        <p>
+        <blockquote data-i18n="philosophy.quote">"Capture first.<br />Organize later."</blockquote>
+        <p data-i18n="philosophy.p">
           Vowvy is built around a simple truth: life doesn't pause while you get organized.
           The app works the way you do — messy, moving, imperfect.
           You capture. Vowvy brings clarity.
@@ -389,13 +396,13 @@
           <img src="assets/images/logo-mark-only.png" alt="Vowvy" class="logo-morph-v" />
           <img src="assets/images/logo-check.png" alt="Vowvy complete" class="logo-morph-check" />
         </div>
-        <h2 class="light">Feel capable again.</h2>
-        <p class="waitlist-sub">
+        <h2 class="light" data-i18n="cta.h2">Feel capable again.</h2>
+        <p class="waitlist-sub" data-i18n="cta.sub">
           Vowvy is live. Snap a photo of any box, drawer, or shelf —
           AI catalogs everything inside. Find anything, later.
         </p>
-        <a href="https://app.vowvy.com" class="btn btn-primary btn-lg">Get Started Free →</a>
-        <p class="waitlist-note">Free to start. No credit card.</p>
+        <a href="https://app.vowvy.com" class="btn btn-primary btn-lg" data-i18n="cta.btn">Get Started Free →</a>
+        <p class="waitlist-note" data-i18n="cta.note">Free to start. No credit card.</p>
       </div>
     </div>
   </section>
@@ -407,8 +414,8 @@
         <img src="assets/images/logo-mark-only.png" alt="Vowvy" class="footer-mark" />
         <div class="footer-wordmark">VOWVY</div>
       </div>
-      <p>© 2026 Vowvy · A searchable memory for physical things.</p>
-      <p><a href="/privacy.html" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px;">Privacy Policy</a></p>
+      <p data-i18n="footer.copy">© 2026 Vowvy · A searchable memory for physical things.</p>
+      <p><a href="/privacy.html" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px;" data-i18n="footer.privacy">Privacy Policy</a></p>
     </div>
   </footer>
 
